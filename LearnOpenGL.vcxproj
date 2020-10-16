@@ -49,7 +49,7 @@
     <ClCompile Include="glfw\src\win32_time.c" />
     <ClCompile Include="glfw\src\win32_window.c" />
     <ClCompile Include="glfw\src\window.c" />
-    <ClCompile Include="source\main.cpp" />
+    <ClCompile Include="source\HelloTriangle\TwoDiffColorTriangle.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
