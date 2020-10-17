@@ -31,6 +31,7 @@
     <ClInclude Include="glfw\src\wgl_context.h" />
     <ClInclude Include="glfw\src\win32_joystick.h" />
     <ClInclude Include="glfw\src\win32_platform.h" />
+    <ClInclude Include="source\Shader\Shader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="glad\src\glad.c" />
@@ -49,7 +50,8 @@
     <ClCompile Include="glfw\src\win32_time.c" />
     <ClCompile Include="glfw\src\win32_window.c" />
     <ClCompile Include="glfw\src\window.c" />
-    <ClCompile Include="source\HelloTriangle\TwoDiffColorTriangle.cpp" />
+    <ClCompile Include="source\Shader\Shader.cpp" />
+    <ClCompile Include="source\Shader\TestShader.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
