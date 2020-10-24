@@ -272,10 +272,11 @@
     <ClInclude Include="glm\vec3.hpp" />
     <ClInclude Include="glm\vec4.hpp" />
     <ClInclude Include="glm\vector_relational.hpp" />
-    <ClInclude Include="source\Common\Shader.h" />
+    <ClInclude Include="source\Common\GLTexture.h" />
+    <ClInclude Include="source\Common\GLShader.h" />
     <ClInclude Include="source\Common\stb_image.h" />
     <ClInclude Include="source\Common\TransformUtils.h" />
-    <ClInclude Include="source\Common\MyWindow.h" />
+    <ClInclude Include="source\Common\GLWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="glad\src\glad.c" />
@@ -295,9 +296,9 @@
     <ClCompile Include="glfw\src\win32_window.c" />
     <ClCompile Include="glfw\src\window.c" />
     <ClCompile Include="glm\detail\glm.cpp" />
-    <ClCompile Include="source\Common\Shader.cpp" />
+    <ClCompile Include="source\Common\GLShader.cpp" />
     <ClCompile Include="source\Common\stb_image.cpp" />
-    <ClCompile Include="source\Common\MyWindow.cpp" />
+    <ClCompile Include="source\Common\GLWindow.cpp" />
     <ClCompile Include="source\Transform\TestTransform.cpp" />
   </ItemGroup>
   <ItemGroup>

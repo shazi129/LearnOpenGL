@@ -1,18 +1,27 @@
 #pragma once
 
-#include "./MyWindow.h"
+#include "./GLWindow.h"
 
 using namespace std;
 
-MyWindow::MyWindow(int width, int height, const std::string& title)
+GLWindow::GLWindow(int width, int height, const std::string& title)
 	: _width(width),
 	  _height(height),
-	  _title(title)
+	  _title(title),
+	  _externalDraw(nullptr), _windowEndCallback(nullptr)
 {
 	_clearColor = glm::vec4(0.2f, 0.3f, 0.3f, 1.0f);
+
+	init();
+
+	if (createWindow() != 0)
+	{
+		_window = nullptr;
+		glfwTerminate();
+	}
 }
 
-void MyWindow::init()
+void GLWindow::init()
 {
 	glfwInit();
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -24,12 +33,12 @@ void MyWindow::init()
 #endif
 }
 
-void MyWindow::frameBufferSizeCallback(GLFWwindow* window, int width, int height)
+void GLWindow::frameBufferSizeCallback(GLFWwindow* window, int width, int height)
 {
 	glViewport(0, 0, width, height);
 }
 
-int MyWindow::createWindow()
+int GLWindow::createWindow()
 {
 	// glfw window creation
 	// --------------------
@@ -54,21 +63,24 @@ int MyWindow::createWindow()
 	return 0;
 }
 
-void MyWindow::setClearColor(glm::vec4 clearColor)
+void GLWindow::setClearColor(glm::vec4 clearColor)
 {
 	_clearColor = clearColor;
 }
 
-void MyWindow::draw()
+void GLWindow::OnDraw(std::function<void()> func)
+{
+	_externalDraw = func;
+}
+
+void GLWindow::draw()
 {
 
 }
 
-void MyWindow::show()
+void GLWindow::show()
 {
-	init();
-
-	if (createWindow() != 0)
+	if (!_window)
 	{
 		return;
 	}
@@ -83,13 +95,22 @@ void MyWindow::show()
 		glClearColor(_clearColor.r, _clearColor.g, _clearColor.b, _clearColor.a);
 		glClear(GL_COLOR_BUFFER_BIT);
 
+		if (_externalDraw)
+		{
+			_externalDraw();
+		}
+		else
+		{
+			draw();
+		}
 
-		draw();
-
-		// glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
-		// -------------------------------------------------------------------------------
 		glfwSwapBuffers(_window);
 		glfwPollEvents();
+	}
+
+	if (_windowEndCallback)
+	{
+		_windowEndCallback();
 	}
 
 	glfwTerminate();

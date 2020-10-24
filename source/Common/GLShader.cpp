@@ -5,19 +5,19 @@
 #include <fstream>
 #include <sstream>
 
-#include "Shader.h"
+#include "GLShader.h"
 
 
 
 using namespace std;
 
-Shader::Shader()
+GLShader::GLShader()
 {
 	
 
 }
 
-Shader::~Shader()
+GLShader::~GLShader()
 {
 	if (_program > 0)
 	{
@@ -25,7 +25,7 @@ Shader::~Shader()
 	}
 }
 
-bool Shader::init(const std::string& vertexShaderPath, const std::string fragShaderPath)
+bool GLShader::init(const std::string& vertexShaderPath, const std::string fragShaderPath)
 {
 	string vertexSource;
 	if (!getFileString(vertexShaderPath, vertexSource))
@@ -85,28 +85,28 @@ bool Shader::init(const std::string& vertexShaderPath, const std::string fragSha
 	return true;
 }
 
-void Shader::use()
+void GLShader::use()
 {
 	glUseProgram(_program);
 }
 
 // uniform¹¤¾ßº¯Êý
-void Shader::setBool(const string &name, bool value)
+void GLShader::setBool(const string &name, bool value)
 {
 	glUniform1i(glGetUniformLocation(_program, name.c_str()), (int)value);
 }
 
-void Shader::setInt(const string &name, int value)
+void GLShader::setInt(const string &name, int value)
 {
 	glUniform1i(glGetUniformLocation(_program, name.c_str()), value);
 }
 
-void Shader::setFloat(const string &name, float value)
+void GLShader::setFloat(const string &name, float value)
 {
 	glUniform1f(glGetUniformLocation(_program, name.c_str()), value);
 }
 
-bool Shader::getFileString(const std::string filePath, std::string& outString)
+bool GLShader::getFileString(const std::string filePath, std::string& outString)
 {
 	ifstream ifs;
 	ifs.exceptions(std::ifstream::failbit | std::ifstream::badbit);

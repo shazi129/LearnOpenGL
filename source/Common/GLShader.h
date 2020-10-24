@@ -4,7 +4,7 @@
 
 #include <iostream>
 
-class Shader
+class GLShader
 {
 private:
 	unsigned int _program;
@@ -12,8 +12,8 @@ private:
 	bool getFileString(const std::string filePath, std::string& outString);
 
 public:
-	Shader();
-	~Shader();
+	GLShader();
+	~GLShader();
 
 	bool init(const std::string& vetexShaderPath, const std::string fragShaderPath);
 
