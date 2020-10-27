@@ -13,7 +13,6 @@ using namespace std;
 
 GLShader::GLShader()
 {
-	
 
 }
 
@@ -25,8 +24,13 @@ GLShader::~GLShader()
 	}
 }
 
-bool GLShader::init(const std::string& vertexShaderPath, const std::string fragShaderPath)
+bool GLShader::init(const std::string& vetexShaderName, const std::string fragShaderName)
 {
+	string shaderPath = "./Source/Common/Engine/Shaders";
+
+	string vertexShaderPath = shaderPath + "/" + vetexShaderName;
+	string fragShaderPath = shaderPath + "/" + fragShaderName;
+
 	string vertexSource;
 	if (!getFileString(vertexShaderPath, vertexSource))
 	{
@@ -104,6 +108,11 @@ void GLShader::setInt(const string &name, int value)
 void GLShader::setFloat(const string &name, float value)
 {
 	glUniform1f(glGetUniformLocation(_program, name.c_str()), value);
+}
+
+void GLShader::setMatrix4fv(const std::string& name, glm::mat4 value)
+{
+	glUniformMatrix4fv(glGetUniformLocation(_program, name.c_str()), 1, GL_TRUE, glm::value_ptr(value));
 }
 
 bool GLShader::getFileString(const std::string filePath, std::string& outString)

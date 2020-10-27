@@ -8,6 +8,8 @@
 #include <GLFW/glfw3.h>
 #include "glm/glm.hpp"
 
+#include "Component/GLComponent.h"
+
 class GLWindow
 {
 private:
@@ -21,6 +23,8 @@ private:
 
 	std::function<void()> _externalDraw;
 	std::function<void()> _windowEndCallback;
+
+	GLComponent * _root;
 
 public:
 	GLWindow(int width, int height, const std::string& title);
