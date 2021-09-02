@@ -58,3 +58,18 @@ void GLComponent::removeChild(GLComponent * child)
 		}
 	}
 }
+
+
+glm::vec3 GLComponent::getWorldPosition()
+{
+	glm::vec3 worldPosition = _localPosition;
+
+	GLComponent *parent = _parent;
+	while (parent)
+	{
+		worldPosition += parent->GetLocalPosition();
+		parent = parent->GetParent();
+	}
+
+	return worldPosition;
+}

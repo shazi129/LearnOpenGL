@@ -274,7 +274,7 @@
     <ClInclude Include="ThirdParty\glm\vector_relational.hpp" />
     <ClInclude Include="source\Common\Component\GLComponent.h" />
     <ClInclude Include="source\Common\Component\GLTexture.h" />
-    <ClInclude Include="source\Common\Engine\GLCamera.h" />
+    <ClInclude Include="Source\Common\Component\GLCamera.h" />
     <ClInclude Include="source\Common\Engine\GLShader.h" />
     <ClInclude Include="ThirdParty\stb_image.h" />
     <ClInclude Include="source\Common\TransformUtils.h" />
@@ -300,7 +300,7 @@
     <ClCompile Include="ThirdParty\glm\detail\glm.cpp" />
     <ClCompile Include="source\Common\Component\GLComponent.cpp" />
     <ClCompile Include="source\Common\Component\GLTexture.cpp" />
-    <ClCompile Include="source\Common\Engine\GLCamera.cpp" />
+    <ClCompile Include="Source\Common\Component\GLCamera.cpp" />
     <ClCompile Include="source\Common\Engine\GLShader.cpp" />
     <ClCompile Include="ThirdParty\stb_image.cpp" />
     <ClCompile Include="source\Common\Engine\GLWindow.cpp" />

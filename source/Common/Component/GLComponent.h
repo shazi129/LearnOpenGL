@@ -34,16 +34,29 @@ public:
 		return _destroyWithParent;
 	}
 
+	virtual GLComponent * GetParent()
+	{
+		return _parent;
+	}
+
 	virtual void attach(GLComponent * parent);
 	virtual void addChild(GLComponent * child);
 	virtual void removeChild(GLComponent * child);
 
-	virtual void setLocalPosition(glm::vec3 position)
+	virtual void SetLocalPosition(glm::vec3 position)
 	{
 		_localPosition = position;
 	}
 
+	virtual glm::vec3 GetLocalPosition()
+	{
+		return _localPosition;
+	}
+
 	virtual void draw() {}
+
+	virtual glm::vec3 getWorldPosition();
+
 };
 
 #endif

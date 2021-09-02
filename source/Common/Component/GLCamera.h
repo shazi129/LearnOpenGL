@@ -3,6 +3,9 @@
 #ifndef _GL_CAMERA_H_
 #define _GL_CAMERA_H_
 
+#include <glm/glm.hpp>
+#include "Component/GLComponent.h"
+
 class GLCamera : GLComponent
 {
 public:
@@ -37,9 +40,22 @@ private:
 
 public:
 
-	void LookAt(glm::vec3 upDirection, glm::vec3 lookDirection);
+	void LookAt(glm::vec3 upDirection, glm::vec3 lookDirection)
+	{
+		//归一化，方便以后计算
+		_up = glm::normalize(upDirection);
+		_lookAt = glm::normalize(lookDirection);
+	}
 
-	void SetNear(float near);
+	void SetDistance(float near, float far)
+	{
+		_near = near;
+		_far = far;
+	}
+
+	glm::mat4 GetOthroMatrix();
+
+	glm::mat4 GetPerspectiveMatrix();
 };
 
 #endif

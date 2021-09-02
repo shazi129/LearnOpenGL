@@ -75,8 +75,8 @@ int main()
 
 	glm::mat4 transform(1.0f);
 
-	transform = getScaleMatrix(glm::vec3(0.5f, 0.5f, 0.5f)) * transform;
-	transform = getTranslateMatrix(glm::vec3(0.9f, 0.9f, 0.0f)) * transform;
+	transform = TransformUtils::getScaleMatrix(glm::vec3(0.5f, 0.5f, 0.5f)) * transform;
+	transform = TransformUtils::getTranslateMatrix(glm::vec3(0.9f, 0.9f, 0.0f)) * transform;
 	//transform = getRoateZMatrix(3.14 / 4) * transform;
 	
 

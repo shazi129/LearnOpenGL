@@ -30,9 +30,6 @@
     <ClInclude Include="source\Common\Engine\GLWindow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="source\Common\Engine\GLCamera.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ThirdParty\glm\detail\_features.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -795,6 +792,9 @@
     <ClInclude Include="ThirdParty\stb_image.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Common\Component\GLCamera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Common\Component\GLComponent.cpp">
@@ -807,9 +807,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\Common\Engine\GLWindow.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Common\Engine\GLCamera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\LearnOpenGL\Transform\TestTransform.cpp">
@@ -867,6 +864,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ThirdParty\stb_image.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Common\Component\GLCamera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
